@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My web page</title>
+</head>
+
+<body>
+    <div>
+        <h2>{{ object.name }}</h2>
+        <p>{{ object.description }}</p>
+        <p>Price: {{ object.price }}</p>
+        <img src="{{ object.image.url }}" alt="{{ object.name }}">
+        <form action="{% url 'checkout' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ object.pk }}">
+            <input type="submit" value="Checkout">
+        </form>
+    </div>
+</body>
+
+</html>

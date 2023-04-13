@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My web page</title>
+</head>
+
+<body>
+    {% for product in object_list %}
+    <div>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: {{ product.price }} {{product.image.url}}</p>
+        <img src="{{product.image.url}}" alt="{{ product.name }}">
+        <a href="{% url 'product_detail' product.pk %}">View details</a>
+    </div>
+    {% endfor %}
+    <p>This is a paragraph.</p>
+</body>
+
+</html>
